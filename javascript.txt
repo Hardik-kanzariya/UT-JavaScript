@@ -1,0 +1,14 @@
+=================== Javascript ====================
+
+	1.Intro to JavaScript
+	2.Output Show Method
+	3.Data Types & Variables
+	4.Operators
+	5.Conditional Statement
+	6.Loop
+	7.Functions
+	8.Array & Methods 
+	9.String & Methods
+	10.OBJECTS & Methods 
+	11.Oops
+	12.Dom

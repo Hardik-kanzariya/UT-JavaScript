@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typing Game Silent Add</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background: #f0f2f5;
+  }
+
+  h1 { color: #333; margin-bottom: 10px; }
+
+  input[type="text"] {
+    font-size: 1rem;
+    padding: 5px;
+    width: 250px;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    outline: none;
+    margin-top: 10px;
+  }
+
+  input[type="text"]:focus {
+    border-color: #0056b3;
+  }
+
+  #word {
+    font-size: 2rem;
+    margin: 20px;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    display: inline-block;
+    min-width: 250px;
+  }
+
+  #score, #level, #timer, #highScore {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  .correct { color: green; }
+  .incorrect { color: red; }
+
+  #wordContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Hidden Buttons */
+  .hiddenButton { display: none; }
+</style>
+</head>
+<body>
+
+<h1>Typing Game</h1>
+
+<div id="level">Level: 1</div>
+<div id="highScore">High Score: 0</div>
+
+<div id="wordContainer">
+  <div id="word">Loading...</div>
+</div>
+
+<input type="text" id="input" placeholder="Type here" autofocus>
+
+<div id="score">Score: 0</div>
+<div id="timer">Time: 10s</div>
+
+
+<script>
+// Words categorized by level
+const words = {
+  1: ["cat", "dog", "sun", "cup", "pen"],
+  2: ["javascript", "browser", "document", "element", "function"],
+  3: ["asynchronous", "development", "programming", "interactive", "application"]
+};
+
+let level = 1;
+let score = 0;
+let time = 10;
+let currentWord = "";
+let highScore = localStorage.getItem("typingHighScore") || 0;
+
+const wordDiv = document.getElementById("word");
+const input = document.getElementById("input");
+const scoreDiv = document.getElementById("score");
+const timerDiv = document.getElementById("timer");
+const levelDiv = document.getElementById("level");
+const highScoreDiv = document.getElementById("highScore");
+const newWordInput = document.getElementById("newWordInput");
+
+highScoreDiv.innerText = `High Score: ${highScore}`;
+
+// Pick a random word based on level
+function pickWord() {
+  const wordList = words[level];
+  if(wordList.length === 0){
+    wordDiv.innerText = "No words! Add words first.";
+    return;
+  }
+  currentWord = wordList[Math.floor(Math.random() * wordList.length)];
+  displayWord(currentWord);
+  input.value = "";
+  time = 10 - level + 1; // higher level = less time
+  timerDiv.innerText = `Time: ${time}s`;
+}
+
+// Display word with letter spans for highlight
+function displayWord(word) {
+  wordDiv.innerHTML = "";
+  word.split("").forEach(letter => {
+    const span = document.createElement("span");
+    span.innerText = letter;
+    wordDiv.appendChild(span);
+  });
+}
+
+// Timer countdown
+let timerInterval = setInterval(() => {
+  if(input.disabled) return;
+  time--;
+  timerDiv.innerText = `Time: ${time}s`;
+  if(time <= 0){
+    gameOver();
+  }
+}, 1000);
+
+// Handle user input for typing
+input.addEventListener("input", () => {
+  const letters = wordDiv.querySelectorAll("span");
+  input.value.split("").forEach((char, index) => {
+    if(letters[index]){
+      if(char === letters[index].innerText){
+        letters[index].classList.add("correct");
+        letters[index].classList.remove("incorrect");
+      } else {
+        letters[index].classList.add("incorrect");
+        letters[index].classList.remove("correct");
+      }
+    }
+  });
+  
+  if(input.value === currentWord){
+    score++;
+    scoreDiv.innerText = `Score: ${score}`;
+    if(score % 5 === 0 && level < 3){
+      level++;
+      levelDiv.innerText = `Level: ${level}`;
+    }
+    pickWord();
+  }
+});
+
+
+
+// Game Over
+function gameOver(){
+  if(score > highScore){
+    highScore = score;
+    localStorage.setItem("typingHighScore", highScore);
+    highScoreDiv.innerText = `High Score: ${highScore}`;
+  }
+  input.disabled = true;
+}
+
+pickWord();
+</script>
+
+</body>
+</html>

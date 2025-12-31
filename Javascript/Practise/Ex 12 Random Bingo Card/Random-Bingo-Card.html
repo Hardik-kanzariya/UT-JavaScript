@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 - Random Bingo Card</title>
+</head>
+<body>
+    
+    <h1>12-random-bingo-card!</h1>
+  
+  <h3>Write a function to create a Bingo Card with Random numbers upto 75</h3>
+  <table>
+    <thead>
+      <tr>
+        <th class="heading">B</th>
+        <th class="heading">I</th>
+        <th class="heading">N</th>
+        <th class="heading">G</th>
+        <th class="heading">O</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr> 
+        <td id="Square1">&nbsp;</td>
+        <td id="Square2">&nbsp;</td>
+        <td id="Square3">&nbsp;</td>
+        <td id="Square4">&nbsp;</td>
+        <td id="Square5">&nbsp;</td>
+      </tr>
+      <tr>
+        <td id="Square6">&nbsp;</td>
+        <td id="Square7">&nbsp;</td>
+        <td id="Square8">&nbsp;</td>
+        <td id="Square9">&nbsp;</td>
+        <td id="Square10">&nbsp;</td>
+      </tr>
+      <tr>
+        <td id="Square11">&nbsp;</td>
+        <td id="Square12">&nbsp;</td>
+        <td id="freeSquare">Free</td>
+        <td id="Square13">&nbsp;</td>
+        <td id="Square14">&nbsp;</td>
+      </tr>
+      <tr>
+        <td id="Square15">&nbsp;</td>
+        <td id="Square16">&nbsp;</td>
+        <td id="Square17">&nbsp;</td>
+        <td id="Square18">&nbsp;</td>
+        <td id="Square19">&nbsp;</td>
+      </tr>
+      <tr>
+        <td id="Square20">&nbsp;</td>
+        <td id="Square21">&nbsp;</td>
+        <td id="Square22">&nbsp;</td>
+        <td id="Square23">&nbsp;</td>
+        <td id="Square24">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3><a href="">Click here</a> (Reload/Refresh) to create Random Bingo Card!</h3>
+
+  <style>
+   
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #555;
+  margin: 15px 0;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th.heading {
+  background: #1976d2;
+  color: white;
+  font-size: 1.5rem;
+  padding: 15px;
+  border: 2px solid #1565c0;
+  letter-spacing: 2px;
+}
+
+td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 2px solid #1976d2;
+  background: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+td:hover {
+  background: #e3f2fd;
+  transform: scale(1.05);
+}
+
+#freeSquare {
+  background: #4caf50;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #388e3c;
+  text-transform: uppercase;
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+  </style>
+
+  <script type="text/javascript" src="Random-Bingo-Card.js"></script>
+
+</body>
+</html>

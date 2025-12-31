@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Speed Typing</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Speed Typing</h1>
+    
+    <div class="stats">
+      <div class="stat"><p>ERRORS</p><span id="errors">0</span></div>
+      <div class="stat"><p>TIME</p><span id="timer">60s</span></div>
+      <div class="stat"><p>%ACCURACY</p><span id="accuracy">100</span></div>
+      <div class="stat"><p>WORDS</p><span id="words">0</span></div>
+    </div>
+
+    <button id="start"> Click on Restart to Start a New Game.</button>
+
+    <div id="quote-box" style="display: none;">
+      <p id="quote">Loading...</p>
+    </div>
+
+    <textarea id="input" placeholder="start typing here..." style="display: none;"></textarea>
+    
+    <div class="restart-container">
+      <button id="restart">Restart Game</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

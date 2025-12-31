@@ -1,0 +1,787 @@
+1. Swapping Variables
+console.log("1- Swapping Variables");
+
+let Variables1 = "one";
+let Variables2 = "two";
+
+// original  Variables
+console.log("Original", "Variables1:", Variables1);
+console.log("Original", "Variables2:", Variables2);
+
+// Swap
+let temp = Variables1;
+Variables1 = Variables2;
+Variables2 = temp;
+
+console.log("Swapped", Variables1);
+console.log("Swapped", Variables2);
+
+// out put
+// Original Variables1: one
+// Original Variables2: two
+// Swapped two
+// Swapped one
+
+
+2. Max Number
+
+console.log("2- Max Number");
+
+function findMaxNumber(num1, num2) {
+    // 1. Long Syntax
+    // if (num1 > num2) {
+    //     return num1;
+    // } else {
+    //     return num2;
+    // }
+
+    // 2. Short Syntax
+    // if(num1 > num2) return num1; 
+    // else return num2;
+
+    // 3. Ternary Syntax
+    return (num1 > num2) ? num1 : num2;
+};
+
+let check1 = findMaxNumber(5, 10);
+console.log("Check Max Number:", check1);
+
+let check2 = findMaxNumber(20, 50);
+console.log("Check Max Number:", check2);
+
+let check3 = findMaxNumber(100, 50);
+console.log("Check Max Number:", check3);
+
+
+// output
+// Check Max Number: 10
+// Check Max Number: 50
+// Check Max Number: 100
+
+3. Landscape Portrait
+console.log("3 - Landscape Portrait");
+
+function isLandscape(width, height) {
+    // ternary short syntax
+    return (width > height);
+}
+
+let checkWidthHeight1 = isLandscape(800, 600);
+console.log("Landscape:", checkWidthHeight1);
+
+let checkWidthHeight2 = isLandscape(600, 800);
+console.log("Landscape:", checkWidthHeight2);
+
+let checkWidthHeight3 = isLandscape(1024, 768);
+console.log("Landscape:", checkWidthHeight3);
+
+
+// output
+// Landscape: true
+// Landscape: false
+// Landscape: true
+
+
+4.FizzBuzz Algorithms 
+console.log("4 - FizzBuzz Algorithms");
+
+/* 
+<h3>Write a function which checks given input/parameter:</h3>
+
+<ul>
+  <li>If input/parameter is divisible by 3 print => Fizz</li>
+  <li>If input/parameter is divisible by 5 print => Buzz</li>
+  <li>If input/parameter is divisible by 3 or 5 print => FizzBuzz</li>
+  <li>If input/parameter is NOT divisible by 3 or 5 print => given Input Number/Value</li>
+  <li>If input/parameter is other than Number/Value print => 'Nan - Not a Number! Please Input Number' </li>
+</ul>
+*/
+
+function isFizzBuzz (arg) {
+    if(typeof arg !== 'number') {
+        return ('Nan - Not a Number! Please Input Number');
+    } else if (arg % 3 === 0 && arg % 5 === 0) {
+        return ('FizzBuzz');
+    } else if (arg % 3 === 0) {
+        return ('Fizz');
+    } else if (arg % 5 === 0) {
+        return ('Buzz');
+    } else {
+        return ('Some odd number entered: ' + arg);
+    }
+};
+
+let checksFizzBuzz1 = isFizzBuzz('one');
+console.log(checksFizzBuzz1);
+
+let checksFizzBuzz2 = isFizzBuzz("true");
+console.log(checksFizzBuzz2);
+
+let checksFizzBuzz3 = isFizzBuzz(3);
+console.log(checksFizzBuzz3);
+
+let checksFizzBuzz4 = isFizzBuzz(5);
+console.log(checksFizzBuzz4);
+
+let checksFizzBuzz5 = isFizzBuzz(15);
+console.log(checksFizzBuzz5);
+
+let checksFizzBuzz6 = isFizzBuzz(7);
+console.log(checksFizzBuzz6);
+
+// out put
+// Nan - Not a Number! Please Input Number
+// Nan - Not a Number! Please Input Number
+// Fizz
+// Buzz
+// FizzBuzz
+// Some odd number entered: 7
+
+
+5. Speed Limits
+
+console.log("5 - Speed Limits");
+
+{/* <h1>5-speed-limits!</h1>
+
+  <h3>Write a function which checks given input/parameter:</h3>
+  
+  <ul>
+    <li>If input/parameter is below speedlimit of 70 print => 'Good Safe Driving'</li>
+    <li>If input/parameter is above speedlimit of 70, every 5 kilometers is Penalty Point, print => 'Speed Limit Crossed by Penalty Point' + Point </li>
+    <li>If Driver gets more than 10 penalty points ie. above the speed limit 120, print => 'License Suspended'</li>
+  </ul> */}
+
+const SPEEDLIMIT = 70;
+const KMPERPOINT = 5;
+
+function checkSpeedLimit(curSpeed) {
+  if (curSpeed <= SPEEDLIMIT) {
+   return ("Good Safe Driving");
+  }
+  else{
+    let penaltyPoints = Math.floor((curSpeed - SPEEDLIMIT) / KMPERPOINT);
+    if (penaltyPoints < 10) {
+      return ("Speed Limit Crossed by Penalty Point " + penaltyPoints);
+    } else {
+      return ("License Suspended");
+    }
+  }
+}
+
+let checksPoint1 = checkSpeedLimit(40);
+console.log(checksPoint1); 
+
+let checksPoint2 = checkSpeedLimit(70);
+console.log(checksPoint2);
+
+let checksPoint3 = checkSpeedLimit(75);
+console.log(checksPoint3);
+
+let checksPoint4 = checkSpeedLimit(99);
+console.log(checksPoint4);
+
+let checksPoint5 = checkSpeedLimit(120);
+console.log(checksPoint5);
+
+
+// output
+// Good Safe Driving
+// Good Safe Driving
+// Speed Limit Crossed by Penalty Point 1
+// Speed Limit Crossed by Penalty Point 5
+// License Suspended
+
+6. odd-even-number-loop 
+console.log('6-odd-even-number-loop');
+
+function isOddEvenNumber(curLimit) {
+  for(let i = 0; i <= curLimit; i++) {
+    /* if (i % 2 === 0) {
+      console.log(i , 'EVEN');
+    } else {
+      console.log(i , 'ODD');
+    } */
+
+    const alertMessage = (i % 2 === 0) ? 'EVEN' : 'ODD';
+    console.log(i , alertMessage);
+  }
+}
+
+isOddEvenNumber(10);
+// isOddEvenNumber(17);
+
+// output
+// 0 EVEN
+// 1 ODD
+// 2 EVEN
+// 3 ODD
+// 4 EVEN
+// 5 ODD
+// 6 EVEN
+// 7 ODD
+// 8 EVEN
+// 9 ODD
+// 10 EVEN
+
+
+7. count-truthy-falsy-values!
+
+console.log("7-count-truthy-falsy-values!");
+
+/*
+<h3>Write a function which checks and count the truthy values from an array</h3>
+
+Falsy values in JavaScript are:
+<ul>
+  <li>false</li>
+  <li>0 (zero)</li>
+  <li>undefined</li>
+  <li>null</li>
+  <li>''</li>
+  <li>NaN</li>
+</ul>
+*/
+
+const valuesArray = [0, 1, "", undefined, false, true];
+
+function checkCountTruthyFalsy(curArray) {
+  let truthyCount = 0;
+
+  for (let values of curArray) {
+     // no need to check if(value !== false || value !== 0 || value !== '' or ...)
+    if (values) {
+      truthyCount++;
+    }
+  }
+  return truthyCount;
+}
+
+console.log(checkCountTruthyFalsy(valuesArray));
+
+// output: 2
+
+
+8. object-string-properties-key
+
+console.log("8-object-string-properties-key!");
+
+function printStringProperties(obj) {
+    for (let key in obj) {
+        // console.log("key/pro :" ,key);
+        if (typeof obj[key] === "string") {
+            console.log(key , ":" ,obj[key]);
+        }
+    }
+}
+
+const person = {
+    name: "John",
+    age: "30",
+    city: "New York",
+    occupation: "Developer"
+};
+
+printStringProperties(person);
+console.log("-----------------------");
+
+const Technology = {
+  name: 'JavaScipt',
+  version: "60",
+  purpose: 'Scripting language for Web',
+  developer: 'Netscape Corporation'
+}
+
+printStringProperties(Technology);
+console.log('----------');
+
+// Out Put
+
+// name : John
+// age : 30
+// city : New York
+// occupation : Developer
+
+// name : JavaScipt
+// version : 60
+// purpose : Scripting language for Web
+// developer : Netscape Corporation
+
+
+9. Sum of Multiples 
+
+console.log("9-Sum of Multiples");
+
+function sumOfMultiples(CurLimit){
+    let sumOfMultiplesValue = 0;
+    for(let i= 0; i<=CurLimit; i++){
+        if(i%3 === 0 || i%5 === 0){
+            // console.log(i);
+            sumOfMultiplesValue += i;
+        }
+    }
+
+    // return sumOfMultiplesValue;
+    console.log(`Sum of multiples of 3 and 5 up to ${CurLimit} is: ${sumOfMultiplesValue}`);
+};
+
+sumOfMultiples(10);
+sumOfMultiples(20);
+
+// Sum of multiples of 3 and 5 up to 10 is: 33
+// Sum of multiples of 3 and 5 up to 20 is: 98
+
+
+10. nested-loop-star-pattern
+
+console.log("10-nested-loop-star-pattern!");
+
+function printStarPattern(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let stars = "";
+        for (let j = 1; j <= i; j++) {
+            stars += " * ";
+        }
+        console.log(stars);
+    }
+}
+
+printStarPattern(5);
+
+// Out Put
+
+//  * 
+//  *  * 
+//  *  *  * 
+//  *  *  *  * 
+//  *  *  *  *  * 
+
+11. marks-average-grade
+console.log("11-marks-average-grade!");
+
+// 1.
+// const MarksArray = [85, 78, 92, 88, 76];
+
+// function calculateAverageAndGrade(CurrentMarks) {
+//     let totalMarks = 0;
+//     let averageMarks = 0;
+//     let grade = '';
+
+// for(let mark of CurrentMarks){
+//     totalMarks += mark;
+// }
+// // console.log(totalMarks);
+// averageMarks  = (totalMarks / CurrentMarks.length);
+// console.log(averageMarks);
+
+//  if(averageMarks < 70) return grade = 'D'; 
+//   if(averageMarks < 80) return grade = 'C';
+//   if(averageMarks < 90) return grade = 'B';
+//   if(averageMarks <= 100) return grade = 'A';
+
+// };
+
+// console.log('Grade:', calculateAverageAndGrade(MarksArray));
+
+// 2.
+const MarksArray = [55, 85, 55, 65];
+
+function calculateAverage(CurrentMarks){
+    let total = 0;
+    for (const mark of CurrentMarks) {
+        total += mark;
+    }
+    // console.log(total);
+    return average = (total / CurrentMarks.length);
+}
+// console.log(calculateAverage(MarksArray));
+
+function calculateGrade(CurrentMarks) {
+    const average = calculateAverage(CurrentMarks);
+    if (average < 70) return 'D';
+    if (average < 80) return 'C';
+    if (average < 90) return 'B';
+    return 'A';
+};
+
+console.log('Grade:', calculateGrade(MarksArray));
+
+// Output: Grade: D
+
+
+12. random-bingo-card
+
+console.log("12-random-bingo-card!");
+
+window.onload = createBingoCard;
+
+function createBingoCard(){
+    // console.log("createBingoCard");
+
+    for (var i = 1 ; i <= 24; i++) {
+        var randomNumber = Math.floor(Math.random() * 75);
+        console.log(randomNumber);
+        document.getElementById("Square" + i).innerText = randomNumber;
+    }
+}
+
+
+13.  Show Prime Numbers
+
+console.log("13 - Show Prime Numbers!");
+
+// function showPrimeNumbers(limit) {
+//     for (let num = 2; num <= limit; num++) {
+//         if (isPrime(num)) {
+//             console.log(num);
+//         }
+//     }
+// }
+
+// function isPrime(n) {
+//     for (let i = 2; i <= Math.sqrt(n); i++) {
+//         if (n % i === 0) {
+//             return false;   
+//         }
+//     }
+//     return n > 1;
+// }
+
+// showPrimeNumbers(20);
+
+function showPrimeNumbers(numberLimit) {
+  for (let curNum = 2; curNum <= numberLimit; curNum++) {
+    // console.log('curNum', curNum);
+    if (isPrimeNumber(curNum)) {
+      console.log('Prime Number:', curNum);
+    }
+  }
+}
+
+function isPrimeNumber(_number) {
+  for (let factor = 2; factor < _number; factor++) {
+    // console.log('factor', factor);
+    if (_number % factor === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+showPrimeNumbers(20);
+
+14.  Sum Of Arguments
+
+console.log("14 - Sum Of Arguments!");
+
+function sumOfArguments(...items) {
+    console.log('current items/values to add:', items);
+  return items.reduce((n1, n2) => n1 + n2, 0);
+}
+
+console.log(sumOfArguments(10, 20, 30 , 40 , 50)); // 150
+
+15.  Sum Of Arguments Array
+console.log("15 - Sum Of Arguments Array!");
+
+function sumOfArgumentsArray(args) {
+  console.log('current items/values to add:', args);
+  return args.reduce((n1, n2) => n1 + n2, 0);
+}
+
+console.log(sumOfArgumentsArray([10, 20, 30, 40, 50])); // 150
+
+16. circle-area-object-read-only-property
+
+console.log("16-circle-area-object-read-only-property");
+
+const circle = {
+    name: 'miniCircle',
+    lineColor: 'red',
+    bgColor: 'green',
+    radius: 1,
+  get area() {
+    return Math.PI * this.radius * this.radius;
+  }
+};
+
+console.log("circle.area:", circle.area); // 3.141592653589793
+
+
+17. create-array-from-argument-range
+
+console.log("17-create-array-from-argument-range!");
+
+function createArrayFromRange(min, max) {
+    const result = [];
+    for (let i = min; i <= max; i++) {
+        // console.log(i);
+        result.push(i);
+        // console.log(result);
+    }
+    return result;
+}
+
+const array1 = createArrayFromRange(1, 5);
+console.log("Created array:", array1);
+
+const array2 = createArrayFromRange(-3, 3);
+console.log("Created array:", array2);
+
+
+18. array-includes-element-exists
+
+console.log("18-array-includes-element-exists!");
+function includes(array, element) {
+    // console.log("Array:", array);
+    // console.log("Element to find:", element);
+    for (let element of array) {
+        if (element === element) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const array1 = [1, 2, 3, 4, 5];
+console.log("Array includes 3:", includes(array1, 3));
+console.log("--------------------------------");
+console.log("Array includes 6:", includes(array1, 6));
+
+// out put
+// Array includes 3: true
+// Array includes 6: false
+
+
+19. array-excludes-value-to-new-array
+
+console.log("19-array-excludes-value-to-new-array!");
+
+
+function excludes(array, value) {
+    console.log("Original Array:", array);
+    console.log("Values to exclude:", value);
+    const result = [];
+    for (let element of array) {
+        if (!value.includes(element)) {
+            result.push(element);
+        }
+    }
+    return result;
+}
+
+const array1 = [1, 2, 3, 4, 5, 6];
+const elementsToExclude = [3, 6];
+console.log("Array after excluding 3:", excludes(array1, elementsToExclude));
+console.log("--------------------------------");
+const array2 = [21, 25, 22, 25, 30, 25, 30];
+const elementsToExclude1 = [25, 30];
+console.log("Array after excluding 6:", excludes(array2, elementsToExclude1));
+
+// out put
+// Original Array: (6) [1, 2, 3, 4, 5, 6]
+// Values to exclude: (2) [3, 6]
+// Array after excluding 3: (4) [1, 2, 4, 5]
+// --------------------------------
+// Original Array: (7) [21, 25, 22, 25, 30, 25, 30]
+// Values to exclude: (2) [25, 30]
+// Array after excluding 6: (2) [21, 22]
+
+20. array-count-search-occurrences
+
+console.log("20-array-count-search-occurrences!");
+
+function countSearchOccurances(array , search) {
+    let count = 0;
+    for (let element of array) {
+        if (element === search) {
+            count++;
+        }
+    }
+    return count;
+}
+
+
+let array1 = [1, 2, 3, 4, 5, 6];
+let search1 = 3;
+console.log("Count of 3 in array1:", countSearchOccurances(array1, search1));
+// Count of 3 in array1: 1
+
+let array2 = [21, 25, 22, 25, 30, 25, 30];
+let search2 = 25;
+console.log("Count of 25 in array2:", countSearchOccurances(array2, search2));
+// Count of 25 in array2: 3
+
+
+21. array-get-max-largest-number
+
+console.log("21-array-get-max-largest-number!");
+
+function getMaxNumber(array) {
+    let max = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
+}
+
+function getMaxCount(array) {
+    let max = getMaxNumber(array);
+    let count = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === max) {
+            count++;
+        }
+    }
+    return { max, count };
+}
+
+let array1 = [1, 2, 3, 4, 5, 6];
+let result1 = getMaxCount(array1);
+console.log("Array1 → Max:", result1.max, "Count:", result1.count);
+
+let array2 = [21, 25, 22, 25, 30, 25, 30];
+let result2 = getMaxCount(array2);
+console.log("Array2 → Max:", result2.max, "Count:", result2.count);
+// output
+// Max number in array1: 6
+// Max number in array2: 30
+
+
+22. array-filter-sort-map
+
+
+console.log('22-array-filter-sort-map');
+
+const studentsArray = [
+  { name: 'Suraj', year: 2019, ranking: 4 },
+  { name: 'Amit', year: 2019, ranking: 5 },
+  { name: 'Akash', year: 2018, ranking: 4 },
+  { name: 'Dinanath', year: 2019, ranking: 7 },
+  { name: 'Sagar', year: 2017, ranking: 3 },
+]
+
+console.log('Higest Rank Holders:',
+  studentsArray
+    .filter(student => student.year === 2019 && student.ranking >= 5)
+    .sort((n1, n2) => n1.ranking - n2.ranking)
+    .reverse()
+    .map(student => student.name)
+);
+
+23. Object Create Students and Address Object
+
+console.log("23 - Object Create Students and Address Object");
+
+
+const Student = {
+    name: "Hardik",
+    age: 21,
+    ranking: 4,
+    country: "India"
+};
+
+
+const Address = {
+    street: "123 Main St",
+    city: "Mumbai",
+    state: "MH",
+    pincode: "400001",
+    country: "India"
+};
+
+
+function showObjectDetails(obj) {
+   for (let key in obj) {
+    //    console.log(`${key}: ${obj[key]}`);
+         console.log(key + ": " + obj[key]);
+   }
+};
+
+
+showObjectDetails(Student);
+console.log("-------------------");
+showObjectDetails(Address);
+
+// output the details of both objects
+
+24.  Create Object Factory Constructor Function
+
+console.log("24 - Create Object Factory Constructor Function");
+
+
+// Factory function/method - camelCasing - camel notation - use return keyword
+function createObjFactoryMethod(name, age , ranking, country){
+    return{
+        name,
+        age,
+        ranking,
+        country
+    }
+}
+let student1 = createObjFactoryMethod("Hardik", 21, 4, "India");
+console.log(student1);
+
+
+// Constructor function/method - pascalCasing - pascal notation - use this keyword
+
+function Student(name , age , ranking , country){
+    this.name = name;
+    this.age = age; 
+    this.ranking = ranking;
+    this.country = country;
+};
+
+let student2 = new Student("Vivek", 20, 5, "India");
+console.log(student2);
+
+
+25.  Object Equality
+
+console.log("25 - Object Equality");
+
+// Constructor function/method - pascalCasing - pascal notation - use this keyword
+
+function Student(name , age , ranking , country){
+    this.name = name;
+    this.age = age; 
+    this.ranking = ranking;
+    this.country = country;
+};
+
+let Student1 = new Student("John" , 20 , "A" , "USA");
+console.log(Student1);
+
+let Student2 = new Student("Joni" , 20 , "B" , "USA");
+console.log(Student2);
+
+// Objects are reference type, objects can have same properties but they are from different memory location, they can be equal if both objects have same properties
+
+
+function isObjectEqual(obj1 , obj2){
+    return obj1.name === obj2.name && 
+    obj1.age === obj2.age && 
+    obj1.ranking === obj2.ranking && 
+    obj1.country === obj2.country;
+}
+
+console.log("Equality Check: ", isObjectEqual(Student1, Student2));
+
+console.log("-----------------------");
+
+// Objects are same if both are pointed to same object
+
+function isObjectSame(obj1 , obj2){
+    return obj1 === obj2;
+}
+
+let isSame1 = isObjectSame(Student1, Student2);
+console.log('isSame1', isSame1);
+
+let Student3 = Student2;
+let isSame2 = isObjectSame(Student2, Student3);
+console.log('isSame2', isSame2);
+
+
