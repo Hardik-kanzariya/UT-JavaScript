@@ -100,6 +100,14 @@ let numbers2 = [1, 2, 3, 4];
 numbers2.reverse();
 console.log(numbers2); // out put:- [4, 3, 2, 1]
 
+//16.1  Reverse without Method
+const reverse1 = (arr) => {
+    let newArr= []
+    arr.forEach(el => newArr.unshift(el));
+    return newArr
+}
+console.log(reverse1([10,20,30,40,50]));
+
 // 17.toReversed():-  Array ne reverse order ma convert karva mate
 let numbers5 = [1, 2, 3, 4];
 let reversed = numbers5.toReversed();
